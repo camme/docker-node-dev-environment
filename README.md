@@ -5,7 +5,6 @@ I created it so I could quickly begin to code on whatever ssh session i'm in, as
 
 The image is based on Ubuntu 16.04 and has tmux and vim with a coupe of plugins:
 
-- [gmarik/Vundle.vim](https://github.com/gmarik/Vundle.vim)
 - [kien/ctrlp.vim](https://github.com/kien/ctrlp.vim)
 - [mattn/emmet-vim](https://github.com/mattn/emmet-vim)
 - [wavded/vim-stylus](https://github.com/wavded/vim-stylus)
