@@ -46,7 +46,7 @@ As you might have guess, its prepared for javascript and node develpoment.
 
 Just type:
 
-docker run -it --rm -v $PWD/src:/app/src camme/node-dev-environment
+  docker run -it --rm -v $PWD/src:/app/src camme/node-dev-environment
 
 (in this example it will map ./src on your computer to /app/src inside the docker container).
 
