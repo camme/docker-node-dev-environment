@@ -1,8 +1,5 @@
 FROM ubuntu:16.04
-#node:7.6.0
 
-#ARG VERSION=0-DEV
-#ENV VERSION=${VERSION}
 RUN export TERM=dumb
 RUN apt-get update
 
@@ -22,13 +19,10 @@ RUN apt-get install -y python-dev python-pip python3-dev python3-pip
 
 WORKDIR /root
 RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-RUN git    clone https://github.com/camme/.configs.git
-
-RUN sed -i "s/set-option -g default-command \"reattach-to-user-namespace -l zsh\"/  /g" .configs/.tmux.conf
 
 RUN mkdir -p ~/.config/nvim/
-RUN ln -s /root/.configs/.nvimrc /root/.config/nvim/init.vim
-RUN ln -s .configs/.tmux.conf
+ADD ./configs/init.vim /root/.config/nvim/init.vim
+ADD ./configs/tmux.conf .tmux.conf
 
 ENV TERM=screen-256color
 RUN pip3 install --upgrade neovim
@@ -45,6 +39,7 @@ RUN ln -s /usr/bin/nvim /usr/bin/vim
 RUN npm i tern -g
 
 RUN (cd ~/.vim/plugged/YouCompleteMe/ &&  ./install.py --tern-completer)
+RUN (cd ~/.vim/plugged/tern_for_vim/ &&  npm i)
 
 #RUN npm i gulp -g
 #RUN npm i webpack -g
